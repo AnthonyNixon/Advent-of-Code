@@ -74,7 +74,7 @@ for version in [1, 2]:
 	initialize()
 	for i in range(0, len(content)):
 		line = content[i].replace('\n', '').replace('\r', '')
-		matchObj = re.match(r'(.+) (\d+),(\d+) through (\d+),(\d+)', line)
+		
 		#print line
 
 		fromX = int(matchObj.group(2))
