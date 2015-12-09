@@ -142,6 +142,7 @@ for i in range(0, len(content)):
 
 	wireValues[variable] = {'statement': assignStatement, 'value': 0, 'evaluated': False}
 
+wireValues['b'] = {'statement': '16076', 'value': 16076, 'evaluated': True}
 print json.dumps(wireValues, indent=2)
 
 while not allEvaluated():
