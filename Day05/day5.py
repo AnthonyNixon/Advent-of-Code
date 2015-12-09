@@ -1,4 +1,5 @@
 import sys
+import itertools
 
 if len(sys.argv) == 2:
 	filename = sys.argv[1] + ".txt"
@@ -13,7 +14,7 @@ niceStringCount = 0
 vowels = ['a', 'e', 'i', 'o', 'u']
 badStrings = ['ab', 'cd', 'pq', 'xy']
 
-def isNiceString(string):
+def isNiceStringV1(string):
 	
 	numVowels = 0
 	for char in string:
@@ -45,11 +46,37 @@ def isNiceString(string):
 	
 	return True
 
+def containsDuplicateTwoLetterCombo(string):
+	for i in range(0, (len(string) - 1)):
+		testString = (string[i] + string[i+1])
+		remainder = string[:i] + "-" + string[(i+2):]
+		
+		#print testString + "\t" + remainder
+		if testString in remainder:
+			return testString
+	return False
+	
+def containsDuplicateWithMiddleLetter(string):
+	for i in range(0, (len(string) - 2)):
+		if string[i] == string[i+2]:
+			return string[i:i+3]
+	return False
+	
+def isNiceStringV2(string):
+	
+	if containsDuplicateTwoLetterCombo(string) and containsDuplicateWithMiddleLetter(string):
+		print string + "\t",
+		print str(containsDuplicateTwoLetterCombo(string)) + " " + str(containsDuplicateWithMiddleLetter(string))
+	return containsDuplicateTwoLetterCombo(string) and containsDuplicateWithMiddleLetter(string)
+
+	
+
 for i in range(0, len(content)):
 	line = content[i]
 	line = line.replace('\n', '')
 	
-	if isNiceString(line):
+	if isNiceStringV2(line):
 		niceStringCount += 1
+		print niceStringCount
 		
 print niceStringCount
