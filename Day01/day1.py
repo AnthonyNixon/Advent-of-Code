@@ -1,7 +1,6 @@
 with open ("input.txt", "r") as myfile:
     data=myfile.read().replace('\n', '')
-	
-print data
+
 floor = 0
 count = 1
 firstBasement = 0
@@ -18,4 +17,5 @@ for i in range(0, len(data)):
 			firstBasement = count
 	count+=1
 
+print floor
 print firstBasement
