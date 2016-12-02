@@ -14,8 +14,11 @@ for instruction in instructions:
     currentKey = [1, 1]
     instruction = instruction.replace('\n', '')
     for letter in instruction:
+        # change the key in the proper direction
         currentKey[0] += directionLookup[letter][0]
         currentKey[1] += directionLookup[letter][1]
+
+        # Error checking for the key being out of bounds
         if currentKey[0] < 0:
             currentKey[0] = 0
         if currentKey[0] > 2:
@@ -25,6 +28,6 @@ for instruction in instructions:
             currentKey[1] = 0
         if currentKey[1] > 2:
             currentKey[1] = 2
-        # print "[" + letter + " " + str(keypad[currentKey[0]][currentKey[1]]) + "]",
 
+    # Print the final key after the instruction
     print keypad[currentKey[0]][currentKey[1]]
