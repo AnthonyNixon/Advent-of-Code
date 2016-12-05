@@ -23,9 +23,6 @@ for line in data:
     print "letters: " + letters
     print "numbers: " + str(numbers)
     print "checksum: " + checksum
-
-    stringLetters = []
-
     roomName = caesar(letters, numbers)
 
     if "north" in roomName:
