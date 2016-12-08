@@ -38,28 +38,13 @@ def isSSL(ipaddress):
                 return True
     return False
 
-# def isSSL(ipaddress):
-#     matches = re.finditer(r'\[[^\]]*(\w)(\w)\1', ipaddress)
-#     for match in matches:
-#         if not (match.group(1) == match.group(2)):
-#             char1 = match.group(1)
-#             char2 = match.group(2)
-#             match2 = re.search(r'(%s)(%s)\1' % (match.group(2), match.group(1)), ipaddress)
-#             if (match2 is not None):
-#                 print char1 + char2 + char1
-#                 print match2.group(2) + match2.group(1) + match2.group(2) + "   ==>   " + match2.group(1) + match2.group(2) + match2.group(1)
-#                 return True
-#     return False
-
 tls_count = 0
 ssl_count = 0
 for line in data:
     if isTLS(line):
         tls_count += 1
     if isSSL(line):
-        # print line.replace(']', '] ').replace('[', ' [')
         ssl_count += 1
-    # raw_input()
 
 print "tls: " + str(tls_count)
 print "ssl: " + str(ssl_count)
